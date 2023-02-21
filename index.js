@@ -14,6 +14,7 @@ app.use(cookieParser());
 const mongoose = require("mongoose");
 
 const connect = mongoose
+  .set("strictQuery", false)
   .connect(config.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
