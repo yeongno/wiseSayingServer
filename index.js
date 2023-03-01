@@ -1,8 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const config = require("./config/key");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+
+app.use(cors());
 
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
