@@ -4,7 +4,7 @@ const router = express.Router();
 const https = require("https");
 const api_key = "37017bba672eb45b94132c5e6f1af6e6";
 
-router.get("/quotes", (req, res) => {
+router.get("/quotes", async (req, res) => {
   const options = {
     hostname: "favqs.com",
     path: `/api/quotes/?page=1`,
@@ -13,24 +13,35 @@ router.get("/quotes", (req, res) => {
     },
   };
 
-  https
-    .get(options, (response) => {
-      let data = "";
+  // https
+  //   .get(options, (response) => {
+  //     let data = "";
 
-      response.on("data", (chunk) => {
-        data += chunk;
-      });
+  //     response.on("data", (chunk) => {
+  //       data += chunk;
+  //     });
 
-      response.on("end", () => {
-        const quotes = JSON.parse(data).quotes;
+  //     response.on("end", () => {
+  //       const quotes = JSON.parse(data).quotes;
 
-        res.send(quotes);
-      });
-    })
-    .on("error", (err) => {
-      console.error(err);
-      res.status(500).send("Error occurred while fetching quotes");
-    });
+  //       res.send(quotes);
+  //     });
+  //   })
+  //   .on("error", (err) => {
+  //     console.error(err);
+  //     res.status(500).send("Error occurred while fetching quotes");
+  //   });
+  try {
+    const response = await axios.get(
+      options,
+      "https://favqs.com/api//quotes/?page=1"
+    );
+    const data = response.data;
+    res.send(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
 });
 
 router.get("/qotd", async (req, res) => {
