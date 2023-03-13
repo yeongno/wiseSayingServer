@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 const express = require("express");
+const quotesInstance = require("../instance/quotesInstance");
 const router = express.Router();
-const { default: quotesInstance } = require("../instance/quotesInstance");
 
 router.get("/quotes", async (req, res) => {
   quotesInstance
