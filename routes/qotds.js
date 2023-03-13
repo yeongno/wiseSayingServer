@@ -1,10 +1,7 @@
 const { default: axios } = require("axios");
 const express = require("express");
-const axios = require("axios");
 const router = express.Router();
-const https = require("https");
 const { default: quotesInstance } = require("../instance/quotesInstance");
-const api_key = "37017bba672eb45b94132c5e6f1af6e6";
 
 router.get("/quotes", async (req, res) => {
   quotesInstance
