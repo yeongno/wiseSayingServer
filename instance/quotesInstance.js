@@ -1,4 +1,4 @@
-import axios from "axios";
+const { default: axios } = require("axios");
 const quotesInstance = axios.create({
   baseURL: "https://favqs.com",
 });
