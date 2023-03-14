@@ -9,7 +9,7 @@ router.get("/quotes/filter/inspiration", async (req, res) => {
     // .get("/api//quotes/?page=1&filter=inspiration")
     .get("/api/quotes/?filter=inspiration")
     .then((response) => {
-      const quotes = response;
+      const quotes = response.data.quotes;
       res.send(quotes);
     })
     .catch((err) => {
