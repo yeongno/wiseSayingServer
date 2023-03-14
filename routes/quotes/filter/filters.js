@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/quotes/filter/inspiration", async (req, res) => {
   quotesInstance
-    .get("/api/quotes/?filter=inspiration")
+    .get("/api/quotes/?filter=funny")
     .then((response) => {
       const quotes = response.data.quotes;
       res.send(quotes);
@@ -17,4 +17,6 @@ router.get("/quotes/filter/inspiration", async (req, res) => {
 });
 //   https://favqs.com/api/quotes/?filter=funny
 // .get("/api//quotes/?page=1&filter=inspiration")
+// .get("/api/quotes/?filter=inspiration")
+
 module.exports = router;
