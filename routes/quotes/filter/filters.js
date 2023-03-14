@@ -15,5 +15,4 @@ router.post("/quotes/filter/topic", async (req, res) => {
       res.send("Error fetching quotes.");
     });
 });
-c;
 module.exports = router;
