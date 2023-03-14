@@ -1,4 +1,4 @@
-onst { Translate } = require("@google-cloud/translate").v2;
+const { Translate } = require("@google-cloud/translate").v2;
 
 // 프로젝트 ID와 인증 정보를 담은 JSON 파일 경로를 입력합니다.
 const translate = new Translate({
@@ -25,6 +25,6 @@ translateText("Hello, World!", "es")
   .catch((error) => {
     console.error(error);
   });
-  module.exports = {
-    translateText,
-  };
+module.exports = {
+  translateText,
+};
