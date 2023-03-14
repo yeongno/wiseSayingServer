@@ -15,23 +15,28 @@ router.get("/quotes", async (req, res) => {
       res.send("Error fetching quotes.");
     });
 });
-// router.get("/quotes/filter/inspiration", async (req, res) => {
-//   quotesInstance
-//     .get("/api/quotes/?filter=funny")
-//     .then((response) => {
-//       const quotes = response.data.quotes;
-//       res.send(quotes);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.send("Error fetching quotes.");
-//     });
-// });
+const { translateText } = require("./translate");
+
+// 번역할 텍스트와 번역할 언어 코드를 입력합니다.
+translateText("Hello, World!", "es")
+  .then((translation) => {
+    console.log(`Translated text: ${translation}`);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 router.get("/qotd", async (req, res) => {
   try {
     const response = await axios.get("https://favqs.com/api/qotd");
-    const data = response.data;
-    res.send(data);
+    const data = response.data.body;
+    translateText(data, "ko")
+      .then((translation) => {
+        console.log(`Translated text: ${translation}`);
+        res.send(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   } catch (error) {
     console.error(error);
     res.status(500).send(error);
