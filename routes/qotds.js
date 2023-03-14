@@ -15,7 +15,7 @@ router.get("/quotes", async (req, res) => {
       res.send("Error fetching quotes.");
     });
 });
-const { translateText } = require("./translate");
+const { translateText } = require("../common/translate");
 
 // 번역할 텍스트와 번역할 언어 코드를 입력합니다.
 translateText("Hello, World!", "es")
