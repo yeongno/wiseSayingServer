@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/quotes", async (req, res) => {
   quotesInstance
-    .get("/api/quotes/?filter=comic")
+    .get("/api/quotes/?page=1")
     .then((response) => {
       const quotes = response.data.quotes;
       res.send(quotes);
@@ -15,7 +15,18 @@ router.get("/quotes", async (req, res) => {
       res.send("Error fetching quotes.");
     });
 });
-
+router.get("/quotes/filter/inspiration", async (req, res) => {
+  quotesInstance
+    .get("/api/quotes/?filter=funny")
+    .then((response) => {
+      const quotes = response.data.quotes;
+      res.send(quotes);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send("Error fetching quotes.");
+    });
+});
 router.get("/qotd", async (req, res) => {
   try {
     const response = await axios.get("https://favqs.com/api/qotd");
