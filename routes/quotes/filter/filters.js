@@ -15,8 +15,5 @@ router.get("/quotes/filter/inspiration", async (req, res) => {
       res.send("Error fetching quotes.");
     });
 });
-//   https://favqs.com/api/quotes/?filter=funny
-// .get("/api//quotes/?page=1&filter=inspiration")
-// .get("/api/quotes/?filter=inspiration")
 
 module.exports = router;

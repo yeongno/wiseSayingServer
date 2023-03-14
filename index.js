@@ -35,7 +35,7 @@ app.use("/api/video", require("./routes/video"));
 app.use("/api/reply", require("./routes/reply"));
 app.use("/api/friends", require("./routes/friends"));
 app.use("/api/qotds", require("./routes/qotds"));
-app.use("/api/qotds", require("./routes/qotds/qiptes/filter/filters"));
+app.use("/api/qotds", require("./routes/quotes/filter/filters"));
 
 //static files path of polder
 app.use("/uploads", express.static("uploads"));
