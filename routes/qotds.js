@@ -17,14 +17,6 @@ router.get("/quotes", async (req, res) => {
     });
 });
 
-// 번역할 텍스트와 번역할 언어 코드를 입력합니다.
-translateText("Hello, World!", "es")
-  .then((translation) => {
-    console.log(`Translated text: ${translation}`);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
 router.get("/qotd", async (req, res) => {
   try {
     const response = await axios.get("https://favqs.com/api/qotd");
