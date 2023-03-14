@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/quotes", async (req, res) => {
   quotesInstance
-    .get("/api/quotes/?page=1")
+    .get("/api/quotes/?filter=comic")
     .then((response) => {
       const quotes = response.data.quotes;
       res.send(quotes);
