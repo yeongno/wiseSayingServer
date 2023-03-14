@@ -3,11 +3,11 @@ const express = require("express");
 const quotesInstance = require("../../../instance/quotesInstance");
 const router = express.Router();
 
-router.get("/quotes/filter/inspiration", async (req, res) => {
+router.post("/quotes/filter/topic", async (req, res) => {
   quotesInstance
-    .get("/api/quotes/?filter=funny")
+    .get(`/api/quotes/?filter=${req.topic}`)
     .then((response) => {
-      const quotes = response.data.quotes;
+      const quotes = response.data;
       res.send(quotes);
     })
     .catch((err) => {
