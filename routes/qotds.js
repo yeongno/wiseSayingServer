@@ -20,7 +20,7 @@ router.get("/quotes", async (req, res) => {
 router.get("/qotd", async (req, res) => {
   try {
     const response = await axios.get("https://favqs.com/api/qotd");
-    const data = response.data.body;
+    const data = response.data.quote.body;
     translateText(data, "ko")
       .then((translation) => {
         console.log(`Translated text: ${translation}`);
