@@ -1,11 +1,17 @@
 const { Translate } = require("@google-cloud/translate").v2;
 
 // 프로젝트 ID와 인증 정보를 담은 JSON 파일 경로를 입력합니다.
+// const translate = new Translate({
+//   projectId: "everywisesaying",
+//   keyFilename: "AIzaSyCnWKsi09JS5Hq2l-41KIpbZ9Q4qVMzlLs",
+// });
 const translate = new Translate({
   projectId: "everywisesaying",
-  keyFilename: "AIzaSyCnWKsi09JS5Hq2l-41KIpbZ9Q4qVMzlLs",
+  credentials: {
+    private_key: "AIzaSyCnWKsi09JS5Hq2l-41KIpbZ9Q4qVMzlLs",
+    client_email: "dldudsh83@gmail.com",
+  },
 });
-
 // 번역할 텍스트와 번역할 언어 코드를 입력합니다.
 async function translateText(text, target) {
   try {
