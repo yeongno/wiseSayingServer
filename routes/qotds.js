@@ -24,7 +24,7 @@ router.get("/qotd", async (req, res) => {
     translateText(data, "ko")
       .then((translation) => {
         console.log(`Translated text: ${translation}`);
-        res.send(data);
+        res.send(translation);
       })
       .catch((error) => {
         console.error(error);
